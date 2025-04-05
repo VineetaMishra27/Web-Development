@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/TURBOC3/BIN/javascript/mini_.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Management System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0 ; background-color:beige; }
+        header { background-color:blueviolet; color: white; padding: 10px; text-align: center; font-family:'Times New Roman', Times, serif;font-size: larger; }
+        nav { margin: 0; padding: 10px; background-color:whitesmoke; }
+        nav a { margin: 0 15px; text-decoration: none; color: #333; }
+        nav a:hover { text-decoration: underline; }
+        .container { padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        form { margin-top: 20px; }
+        input, textarea { padding: 10px; margin: 5px 0; width: calc(100% - 22px); box-sizing: border-box; }
+        button { padding: 10px; background-color: blueviolet; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: blueviolet; }
+        .content { display: none; }
+        .info { margin-top: 20px; }
+        .info p { margin: 5px 0; }
+        #student-list li { margin: 5px 0; cursor: pointer; }
+        #student-list li:hover { color:blueviolet; }
+        .student-info { display: none; margin-top: 10px; background-color: #f9f9f9; padding: 10px; border: 1px solid #ddd; }
+        .quiz-container { margin-top: 20px; }
+        .quiz-question { margin-bottom: 10px; }
+        .quiz-options label { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+            <h1><b>Classroom Management System</b></h1>
+    </header>
+    <nav>
+        <a href="file:///C:/TURBOC3/BIN/javascript/mini_.html#" onclick="showContent(&#39;home&#39;)">Home</a>
+        <a href="file:///C:/TURBOC3/BIN/javascript/mini_.html#" onclick="showContent(&#39;student-details&#39;)">Student Details</a>
+        <a href="file:///C:/TURBOC3/BIN/javascript/mini_.html#" onclick="showContent(&#39;quizzes&#39;)">Quizzes</a>
+    </nav>
+    
+    <div id="home" class="container content" style="display: none;">
+        <h2>Welcome to the Classroom Management System</h2>
+        <p>Select an option from the menu to get started.</p>
+    </div>
+
+    <!-- Student Details Section -->
+    <div id="student-details" class="container content" style="display: none;">
+        <h2>Student Details</h2>
+        <ul id="student-list">
+            <li onclick="toggleStudentInfo(&#39;student1&#39;)">Vineeta</li>
+            <div id="student1" class="student-info" style="display: block;">
+                <p>Name: Vineeta</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech AI-DS</p>
+                <p>Attendance: 85%</p>
+                <p>Marks in Term 1: Maths - 25, DSDS - 20, OOPM - 18</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student2&#39;)">Shrinidhi</li>
+            <div id="student2" class="student-info">
+                <p>Name: Shrinidhi</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 90%</p>
+                <p>Marks in Term 1: Maths - 22, DSDS - 19, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student3&#39;)">Karina</li>
+            <div id="student3" class="student-info">
+                <p>Name: Karina</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 88%</p>
+                <p>Marks in Term 1: Maths - 21, DSDS - 17, OOPM - 19</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student4&#39;)">Rohan</li>
+            <div id="student4" class="student-info" style="display: block;">
+                <p>Name: Rohan</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 92%</p>
+                <p>Marks in Term 1: Maths - 23, DSDS - 20, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student5&#39;)">Amit</li>
+            <div id="student5" class="student-info">
+                <p>Name: Amit</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student6&#39;)">Yash</li>
+            <div id="student6" class="student-info">
+                <p>Name: Yash</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student7&#39;)">Vedant</li>
+            <div id="student7" class="student-info">
+                <p>Name: Vedant</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student8&#39;)">Vedika</li>
+            <div id="student8" class="student-info">
+                <p>Name: Vedika</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student9&#39;)">Jiya</li>
+            <div id="student9" class="student-info">
+                <p>Name: Jiya</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student10&#39;)">Dhruv</li>
+            <div id="student10" class="student-info">
+                <p>Name: Dhruv</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student11&#39;)">Shubham</li>
+            <div id="student11" class="student-info">
+                <p>Name: Shubham</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student12&#39;)">Purushottam</li>
+            <div id="student12" class="student-info" style="display: block;">
+                <p>Name: Purushottam</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student13&#39;)">Dishank</li>
+            <div id="student13" class="student-info">
+                <p>Name: Amit</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+            <li onclick="toggleStudentInfo(&#39;student14&#39;)">Vatsal</li>
+            <div id="student14" class="student-info">
+                <p>Name: Vatsal</p>
+                <p>Year: Second</p>
+                <p>Branch: BTech  AI-DS</p>
+                <p>Attendance: 86%</p>
+                <p>Marks in Term 1: Maths - 18, DSDS - 18, OOPM - 20</p>
+            </div>
+        </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quizzes" class="container content" style="display: block;">
+        <h2>Quizzes</h2>
+        <form id="quizForm">
+            <!-- DSA Questions -->
+            <div class="quiz-container">
+                <h3>Data Structures and Algorithms (DSA)</h3>
+                <div class="quiz-question">
+                    <p>1. What is the time complexity of binary search?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="O(log n)"> O(log n)</label>
+                        <label><input type="radio" name="q1" value="O(n)"> O(n)</label>
+                        <label><input type="radio" name="q1" value="O(n log n)"> O(n log n)</label>
+                        <label><input type="radio" name="q1" value="O(1)"> O(1)</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. Which data structure is used in DFS?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="Stack"> Stack</label>
+                        <label><input type="radio" name="q2" value="Queue"> Queue</label>
+                        <label><input type="radio" name="q2" value="Linked List"> Linked List</label>
+                        <label><input type="radio" name="q2" value="Array"> Array</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. What is the worst-case time complexity of quicksort?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="O(n^2)"> O(n^2)</label>
+                        <label><input type="radio" name="q3" value="O(n log n)"> O(n log n)</label>
+                        <label><input type="radio" name="q3" value="O(n)"> O(n)</label>
+                        <label><input type="radio" name="q3" value="O(log n)"> O(log n)</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. Which of the following is a balanced tree?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="Binary Search Tree"> Binary Search Tree</label>
+                        <label><input type="radio" name="q4" value="AVL Tree"> AVL Tree</label>
+                        <label><input type="radio" name="q4" value="Red-Black Tree"> Red-Black Tree</label>
+                        <label><input type="radio" name="q4" value="All of the above"> All of the above</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>5. Which algorithm is used for finding the shortest path in a graph?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="Dijkstra&#39;s Algorithm"> Dijkstra's Algorithm</label>
+                        <label><input type="radio" name="q5" value="Kruskal&#39;s Algorithm"> Kruskal's Algorithm</label>
+                        <label><input type="radio" name="q5" value="Prim&#39;s Algorithm"> Prim's Algorithm</label>
+                        <label><input type="radio" name="q5" value="Bellman-Ford Algorithm"> Bellman-Ford Algorithm
+</label>
+                    </div>
+                </div>
+                <button type="button" onclick="submitQuiz()">Submit DSA Quiz</button>
+            </div>
+
+            <!-- Engineering Mathematics Questions -->
+            <div class="quiz-container">
+                <h3>Engineering Mathematics</h3>
+                <div class="quiz-question">
+                    <p>1. What is the derivative of sin(x)?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="em_q1" value="cos(x)"> cos(x)</label>
+                        <label><input type="radio" name="em_q1" value="sin(x)"> sin(x)</label>
+                        <label><input type="radio" name="em_q1" value="-sin(x)"> -sin(x)</label>
+                        <label><input type="radio" name="em_q1" value="tan(x)"> tan(x)</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. What is the Laplace transform of f(t) = e^(-at)?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="em_q2" value="1/(s+a)"> 1/(s+a)</label>
+                        <label><input type="radio" name="em_q2" value="1/(s-a)"> 1/(s-a)</label>
+                        <label><input type="radio" name="em_q2" value="1/(s^2 + a^2)"> 1/(s^2 + a^2)</label>
+                        <label><input type="radio" name="em_q2" value="1/s"> 1/s</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. What is the integral of 1/x dx?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="em_q3" value="ln|x| + C"> ln|x| + C</label>
+                        <label><input type="radio" name="em_q3" value="x^2/2 + C"> x^2/2 + C</label>
+                        <label><input type="radio" name="em_q3" value="e^x + C"> e^x + C</label>
+                        <label><input type="radio" name="em_q3" value="sin(x) + C"> sin(x) + C</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. What is the solution to the differential equation dy/dx = ky?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="em_q4" value="y = Ce^(kx)"> y = Ce^(kx)</label>
+                        <label><input type="radio" name="em_q4" value="y = Cx^k"> y = Cx^k</label>
+                        <label><input type="radio" name="em_q4" value="y = kx + C"> y = kx + C</label>
+                        <label><input type="radio" name="em_q4" value="y = sin(kx)"> y = sin(kx)</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>5. What is the value of the limit lim(x-&gt;0)(sin(x)/x)?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="em_q5" value="1"> 1</label>
+                        <label><input type="radio" name="em_q5" value="0"> 0</label>
+                        <label><input type="radio" name="em_q5" value="∞"> ∞</label>
+                        <label><input type="radio" name="em_q5" value="2"> 2</label>
+                    </div>
+                </div>
+                <button type="button" onclick="submitQuiz()">Submit Engineering Mathematics Quiz</button>
+            </div>
+
+            <!-- Discrete Structures Questions -->
+            <div class="quiz-container">
+                <h3>Discrete Structures</h3>
+                <div class="quiz-question">
+                    <p>1. What is the value of 2^3?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="ds_q1" value="8"> 8</label>
+                        <label><input type="radio" name="ds_q1" value="6"> 6</label>
+                        <label><input type="radio" name="ds_q1" value="4"> 4</label>
+                        <label><input type="radio" name="ds_q1" value="2"> 2</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. Which of the following is a type of graph?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="ds_q2" value="Directed Graph"> Directed Graph</label>
+                        <label><input type="radio" name="ds_q2" value="Undirected Graph"> Undirected Graph</label>
+                        <label><input type="radio" name="ds_q2" value="Weighted Graph"> Weighted Graph</label>
+                        <label><input type="radio" name="ds_q2" value="All of the above"> All of the above</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. What does the term 'cardinality' refer to?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="ds_q3" value="Number of elements in a set"> Number of elements in a set</label>
+                        <label><input type="radio" name="ds_q3" value="Order of elements in a set"> Order of elements in a set</label>
+                        <label><input type="radio" name="ds_q3" value="Sum of elements in a set"> Sum of elements in a set</label>
+                        <label><input type="radio" name="ds_q3" value="Difference of elements in a set"> Difference of elements in a set</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. What is a tautology in logic?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="ds_q4" value="Always true statement"> Always true statement</label>
+                        <label><input type="radio" name="ds_q4" value="Always false statement"> Always false statement</label>
+                        <label><input type="radio" name="ds_q4" value="Conditional statement"> Conditional statement</label>
+                        <label><input type="radio" name="ds_q4" value="Contradictory statement"> Contradictory statement</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>5. Which of the following is not a type of relation?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="ds_q5" value="Reflexive"> Reflexive</label>
+                        <label><input type="radio" name="ds_q5" value="Symmetric"> Symmetric</label>
+                        <label><input type="radio" name="ds_q5" value="Transitive"> Transitive</label>
+                        <label><input type="radio" name="ds_q5" value="Linear"> Linear</label>
+                    </div>
+                </div>
+                <button type="button" onclick="submitQuiz()">Submit Discrete Structures Quiz</button>
+            </div>
+
+            <!-- Java Programming Questions -->
+            <div class="quiz-container">
+                <h3>Java Programming</h3>
+                <div class="quiz-question">
+                    <p>1. What is the correct way to declare a variable in Java?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="java_q1" value="int x = 5;"> int x = 5;</label>
+                        <label><input type="radio" name="java_q1" value="5 = int x;"> 5 = int x;</label>
+                        <label><input type="radio" name="java_q1" value="x = int 5;"> x = int 5;</label>
+                        <label><input type="radio" name="java_q1" value="int = x 5;"> int = x 5;</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. Which keyword is used to create a class in Java?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="java_q2" value="class"> class</label>
+                        <label><input type="radio" name="java_q2" value="Class"> Class</label>
+                        <label><input type="radio" name="java_q2" value="new"> new</label>
+                        <label><input type="radio" name="java_q2" value="create"> create</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. What is the output of System.out.println(10 + 20 + "30");?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="java_q3" value="1030"> 1030</label>
+                        <label><input type="radio" name="java_q3" value="3030"> 3030</label>
+                        <label><input type="radio" name="java_q3" value="30"> 30</label>
+                        <label><input type="radio" name="java_q3" value="1020"> 1020</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. Which of the following is a valid method declaration in Java?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="java_q4" value="public void methodName()"> public void methodName()</label>
+                        <label><input type="radio" name="java_q4" value="void methodName() public"> void methodName() public</label>
+                        <label><input type="radio" name="java_q4" value="methodName() void"> methodName() void</label>
+                        <label><input type="radio" name="java_q4" value="public methodName void()"> public methodName void()</label>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>5. What is the purpose of the 'this' keyword in Java?</p>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="java_q5" value="Refers to the current object"> Refers to the current object</label>
+                        <label><input type="radio" name="java_q5" value="Refers to the superclass"> Refers to the superclass</label>
+                        <label><input type="radio" name="java_q5" value="Used for inheritance"> Used for inheritance</label>
+                        <label><input type="radio" name="java_q5" value="Defines a constructor"> Defines a constructor</label>
+                    </div>
+                </div>
+                <button type="button" onclick="submitQuiz()">Submit Java Programming Quiz</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function showContent(contentId) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(contentId).style.display = 'block';
+        }
+
+        function toggleStudentInfo(studentId) {
+            const info = document.getElementById(studentId);
+            info.style.display = info.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function submitQuiz() {
+            alert('Quiz submitted! Thank you for participating.');
+            // Here you can add logic to handle the submitted quiz answers
+        }
+
+        // Default to show the home section on page load
+        window.onload = function() {
+            showContent('home');
+        };
+    </script>
+
+</body></html>
