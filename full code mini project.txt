@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Classroom Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="#students">Students</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#grades">Grades</a></li>
+                <li><a href="#quizzes">Quizzes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="students">
+            <h2>Manage Students</h2>
+            <button onclick="fetchStudents()">Load Students</button>
+            <ul id="studentList"></ul>
+        </section>
+        <section id="assignments">
+            <h2>Manage Assignments</h2>
+            <p>Create and distribute assignments to students.</p>
+        </section>
+        <section id="attendance">
+            <h2>Attendance</h2>
+            <p>Track student attendance and participation.</p>
+        </section>
+        <section id="grades">
+            <h2>Grades</h2>
+            <p>Record and manage student grades.</p>
+        </section>
+        <section id="quizzes">
+            <h2>Create Quiz</h2>
+            <form id="quizForm" onsubmit="createQuiz(event)">
+                <input type="text" id="quizTitle" placeholder="Quiz Title" required />
+                <textarea id="quizQuestions" placeholder="Enter questions (one per line)" required></textarea>
+                <button type="submit">Create Quiz</button>
+            </form>
+            <div id="quizFeedback"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Classroom Management System</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+CSS
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background: #0056b3;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+section {
+    background: #fff;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #0056b3;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+JS
+
+async function fetchStudents() {
+    try {
+        const response = await fetch('/api/students');
+        const students = await response.json();
+        const studentList = document.getElementById('studentList');
+        studentList.innerHTML = '';
+        students.forEach(student => {
+            const li = document.createElement('li');
+            li.textContent = student.name;
+            studentList.appendChild(li);
+        });
+    } catch (error) {
+        console.error('Error fetching students:', error);
+    }
+}
+
+async function createQuiz(event) {
+    event.preventDefault();
+    
+    const title = document.getElementById('quizTitle').value;
+    const questions = document.getElementById('quizQuestions').value.split('\n').map(q => q.trim()).filter(q => q);
+
+    if (!title || questions.length === 0) {
+        return alert('Please enter a title and at least one question.');
+    }
+
+    const quizData = { title, questions };
+
+    try {
+        const response = await fetch('/api/quizzes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(quizData),
+        });
+
+        if (response.ok) {
+            document.getElementById('quizFeedback').textContent = 'Quiz created successfully!';
+            document.getElementById('quizForm').reset();
+        } else {
+            document.getElementById('quizFeedback').textContent = 'Error creating quiz.';
+        }
+    } catch (error) {
+        console.error('Error creating quiz:', error);
+    }
+}
+
+
+
+NODE.JS
+server.js
+
+
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+const PORT = 3000;
+
+app.use(cors());
+app.use(express.json());
+
+let students = [
+    { id: 1, name: 'Alice Johnson' },
+    { id: 2, name: 'Bob Smith' },
+    { id: 3, name: 'Charlie Brown' }
+];
+
+let quizzes = [];
+
+// API endpoint to get students
+app.get('/api/students', (req, res) => {
+    res.json(students);
+});
+
+// API endpoint to create a quiz
+app.post('/api/quizzes', (req, res) => {
+    const { title, questions } = req.body;
+    if (!title || !Array.isArray(questions) || questions.length === 0) {
+        return res.status(400).json({ error: 'Invalid quiz data' });
+    }
+    const newQuiz = { id: quizzes.length + 1, title, questions };
+    quizzes.push(newQuiz);
+    res.status(201).json(newQuiz);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+
+
+
+
+
+
