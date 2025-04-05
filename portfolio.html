@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY PORTFOLIO</title>
+    <link rel="stylesheet" href="portfolio.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+    <div id="header1">
+        <div class="container">
+            <nav>
+                <img src="vineelogo1.jpg" class="logo">
+                <ul>
+                    <li><a href="#header1">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    </nav>
+                    <div class="header-text">
+                        <p>Web Developer</p>
+                        <h1>Hi, I'm <span>Vineeta Mishra</span> <br>From India</h1>   
+                    </div>
+        </div>
+     </div>
+     <!--------------about-------------------->
+     <div id="about">
+        <div class="container">         
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="vineeport.jpg"/>
+                </div>
+                <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>   
+              <p>Motivated and detail-oriented B.Tech student specializing in AI and Data
+                Science, with expertise in front-end development, DSA, SQL, and Flutter.
+                Strong programming skills with a focus on building scalable and efficient
+                applications. Passionate about leveraging technical expertise to solve complex
+                problems and contribute to innovative projects. </p>
+                
+                <div class="tab-title">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('exp')">Experience</p>    
+                    <p class="tab-links" onclick="opentab('edu')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Web Developer</span><br>Designing Web/App interfaces </li>
+                        <li><span>Data Analysis</span><br>Analysing Data </li>
+                        <li><span>Investor</span><br>Investmentent/Trading skills </li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="exp">
+                    <ul>
+                        <li><span>2024-current</span><br>Pursuing B.Tech </li>
+                        <li><span>2021-2023</span><br>High school in PCM with Computer Science </li>
+                        <li><span>2021</span><br>Completed SSC </li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="edu">
+                    <ul>
+                        <li><span>Web Developer</span><br>Designing Web/App interfaces </li>
+                        <li><span>Data Analysis</span><br>Analysing Data </li>
+                        <li><span>Investor</span><br>Investmentent/Trading skills </li>
+                    </ul>
+                </div>
+                </div>
+             </div>
+        </div>  
+        </div>
+    <!----------------------------skills--------------------->
+        <div class="Skills">
+            <div class="icon-container">
+                <div class="skill-container">
+                <h1 class="sub-title">Skills</h1>
+                </div>
+                <div class="r1">
+                <i class="fa-brands fa-html5"></i>
+                <p>Html</p>
+                </div>
+                <div class="r1">
+               <i class="fa-brands fa-css3"></i>
+                <p>Css</p>
+                </div>
+                <div class="r1">
+                <i class="fa-brands fa-js"></i>
+                <p>JS</p>
+                </div>
+                <div class="r2">
+                <i class="fa-solid fa-c"></i>    
+                <p>C language</p>
+                </div>
+                <div class="r2">
+                <i class="fa-brands fa-python"></i>
+                <p>Python</p>
+                </div>
+                <div class="r2">
+                <i class="fa-solid fa-database"></i>
+                <p>DSA</p>
+                </div>
+            </div>
+        </div>
+    
+        <!--------------------services----------->    
+        <div id="Services">
+            <div class="container">
+                <h1 class="sub-title">My Services</h1> 
+                <div class="services-list">
+                    <div><a href=""></a>
+                        <i class="fa-solid fa-code"></i>
+                        <h2><b>Web Design</b></h2>
+                        <p>Passionate about creating visually appealing and user-friendly websites with a
+                             focus on modern design trends.Skilled in HTML, CSS, and JavaScript to craft 
+                             responsive and engaging web experiences
+                        </p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-database"></i>
+                        <h2><b>DSA</b></h2>
+                        <p>Proficient in Data Structures and Algorithms, with a strong understanding 
+                            of problem-solving techniques. Experienced in optimizing code for
+                             efficiency using various algorithms and data structures
+                        </p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <h2><b>Trading/Investment</b></h2>
+                        <p>Passionate about trading and investment strategies, with a focus on
+                           risk management and market analysis. Continuously learning and
+                           applying financial insights to make informed investment decisions.
+                        </p>
+                        <a href="#">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!----------------------portfolio------------------->    
+ <div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1> 
+        <div class="work-list">
+            <div class="work">
+                <img src="work1.jpeg">
+                  <div class="layer">
+                  <h3>Social Media App</h3>
+                  <p>The app that connect you to the talented people around the world.</p>
+                  <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="work2.jpeg">
+                <div class="layer">
+                    <h3>Music App</h3>
+                    <p>The app that connect you to the talented people around the world.</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                  </div>
+          </div>
+          <div class="work">
+            <img src="work3.jpeg">
+            <div class="layer">
+                <h3>Online Shopping App</h3>
+                <p>The app that connect you to the talented people around the world.</p>
+                <a href="#"><i class="fa-solid fa-link"></i></a>
+              </div>
+      </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>    
+ </div>
+ <!---------------------------contact---------------------->
+ <div id="contact">
+    <div class="contact">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>vineetamishra.2525@gmail.com</p>
+                <p><i class="fa-solid fa-phone-volume"></i>+91-7045150221</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="VINEETA_MISHRA.pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+               <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your email" required>
+                <textarea name="Message" rows="6" placeholder="Your message"></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+               </form>
+               <span id="msg"></span>
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright @ Vineeta Mishra . Made with<i class="fa-solid fa-heart"></i> by GreatStacks</p>
+    </div>
+ </div>
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+       </script> 
+       <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxz_AfYhyPi6MMa0QKkJsJ_DjiCqBIHlFDPRM_Eqvdr01yMBRns4FAZdXd1d25d29js/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg=document.getElementById("msg")
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {msg.innerHTML="Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""}, 5000)
+                    form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
